@@ -27,7 +27,12 @@ class Program
             // TODO 2: Create a function to handle the user input
             string? guess = AskWord(attempt);
             // TODO 3: Create a function to validate the input
-            if (!IsValidInput(guess)) continue;
+            bool isOk = IsValidInput(guess);
+            if (!isOk)
+            {
+                Console.WriteLine("Ongeldig woord");
+                continue;
+            }
             // TODO 4: Create a function to check if the words are equal
             if (AreEqual(guess, wordToBeGuessed))
             {
@@ -82,12 +87,13 @@ class Program
 
     private static bool IsValidInput(string? guess)
     {
-        if (guess == null || guess.Length != MAX_WORD_LENGTH)
-        {
-            Console.WriteLine("Ongeldig woord");
-            return false;
-        }
-        return true;
+        return guess == null || guess.Length != MAX_WORD_LENGTH;
+        //if (guess == null || guess.Length != MAX_WORD_LENGTH)
+        //{
+        //    Console.WriteLine("Ongeldig woord");
+        //    return false;
+        //}
+        //return true;
     }
 
     private static string? AskWord(int attempt)
@@ -96,7 +102,7 @@ class Program
         return Console.ReadLine();
     }
 
-    private static string GenerateWord()
+    static string GenerateWord()
     {
         Random rnd = new Random((int)DateTime.Now.Ticks);
         int idx = rnd.Next(0, wordlist.Length);
