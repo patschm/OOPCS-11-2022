@@ -10,7 +10,7 @@ class Program
                                 "treur", "typen", "uniek", "ultra", "vloer", "vorst", "wreed", "wazig",
                                 "xenon", "yacht", "yucca", "zomer", "zagen"};
 
-    const int MAX_WORD_LENGTH = 5;
+    public const int MAX_WORD_LENGTH = 5;
     const int MAX_ATTEMPTS = 5;
 
     static void Main(string[] args)
@@ -80,6 +80,8 @@ class Program
     {
         Random rnd = new Random((int)DateTime.Now.Ticks);
         int idx = rnd.Next(0, wordlist.Length);
-        return new LingoWord(wordlist[idx]);
+        string wrd = wordlist[idx];
+        LingoWord w = new LingoWord(wrd);
+        return w;
     }
 }

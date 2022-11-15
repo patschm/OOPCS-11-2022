@@ -1,4 +1,6 @@
-﻿namespace MyUniverse;
+﻿#define VIRTUALx
+
+namespace MyUniverse;
 
 internal class Program
 {
@@ -6,6 +8,14 @@ internal class Program
     {
         Console.WriteLine("Big Bang");
 
+        // Generaliseren
+        Pen p10 = new GlitterPen { Kleur = ConsoleColor.Red, Geur = "Kers" };
+        (p10 as GlitterPen).Geur = "Banaan"; // Vergrootglas erop
+
+        p10.Schrijf("Gary");
+
+
+#if VIRTUAL
         Pen p1 = new Pen();
         //Pen p1 = new Pen(20, ConsoleColor.DarkGreen);
         //p1.lijndikte = 5;
@@ -26,6 +36,7 @@ internal class Program
         //p4.Set_Lijndikte(100);
         p4.Schrijf("Korter!");
 
-        Console.WriteLine("Big Crunch");
+        Console.WriteLine("Big Crunch"); 
+#endif
     }
 }

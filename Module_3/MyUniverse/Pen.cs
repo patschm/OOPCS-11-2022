@@ -1,10 +1,10 @@
 ﻿namespace MyUniverse;
 
-class Pen
+abstract class Pen
 {
     // Fields. Hierin slaan we de eigenschappen op
     private int lijndikte = 20;
-    private ConsoleColor kleur = ConsoleColor.DarkRed;
+    //private ConsoleColor kleur = ConsoleColor.DarkRed;
 
     // Access method
     // Old school voo Javanen en C++-erts
@@ -48,14 +48,21 @@ class Pen
         }
     }
 
-
+#if !VIRTUAL
     // Methods. Hierin definieren we gedrag
-    public void Schrijf(string text)
+    // Abstract. Afgeleide classen MOETEN overschrijven.. Jouw implementatie is dan ook overbodig.
+    // Gevolg is wel dat de hele class abstract.
+    public abstract void Schrijf(string text);
+#else
+
+    // Virtual: Afgeleide classen mogen (OPTIONEEL) overschrijven, maar hoeft niet.
+    public virtual void Schrijf(string text);
     {
         Console.ForegroundColor = Kleur;
         Console.WriteLine($"{text} in lijndikte {lijndikte}");
         Console.ResetColor();
     }
+#endif
 
     // Constructor. Hierin geef je jouw fields een initiele waarde.
     // Gebruik met mate!!!!

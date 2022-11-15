@@ -5,7 +5,7 @@ public class LingoCharacter
     // TODO 1: Make sure that this character field only contains lowercase characters.
     // Refactor the code
     // Hint: Check char's members (char.)
-    private char character;
+    private char mCharacter;
     // TODO 2: Make sure that position  cannot be less than 0
     private int position;
 
@@ -13,11 +13,11 @@ public class LingoCharacter
     {
         get
         {
-            return character;
+            return mCharacter;
         }
         set
         {
-            character = char.ToLower(value);
+            mCharacter = char.ToLower(value);
         }
     }
 
