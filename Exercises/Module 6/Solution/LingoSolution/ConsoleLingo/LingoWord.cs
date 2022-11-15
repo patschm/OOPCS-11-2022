@@ -48,7 +48,7 @@ public class LingoWord : IEnumerable
         // Of course you can use your own strategy if you like.
         CharCounter counter = new CharCounter(targetWord);
         
-        LingoWord resulting = new LingoWord(guess.ToString());
+        LingoWord scrabblePlankje = new LingoWord(guess.ToString());
         // TODO 4: Complete this method to return a new LingoWord (resulting) with the results of the examination.
         // If the character is correct and in the right place then you place an ExactCharacter at that position in the resulting LingoWord
         // If the character is part of the word but not in the right place a PartialCharacter at that position in the resulting LingoWord
@@ -62,7 +62,7 @@ public class LingoWord : IEnumerable
                 if (LingoCharacter.ExactlyEqual(targetChar, guessChar))
                 {
                     counter.DecrementCharacterCount(targetChar);
-                    resulting[i] = ExactCharacter.Create(guessChar.Character, guessChar.Position);
+                    scrabblePlankje[i] = ExactCharacter.Create(guessChar.Character, guessChar.Position);
                 }
             }
         }
@@ -76,11 +76,11 @@ public class LingoWord : IEnumerable
                     LingoCharacter.PartialEqual(thisChar, guessChar))
                 {
                     counter.DecrementCharacterCount(thisChar);
-                    resulting[i] = PartialCharacter.Create(guessChar.Character, guessChar.Position);
+                    scrabblePlankje[i] = PartialCharacter.Create(guessChar.Character, guessChar.Position);
                 }
             }
         }
-        return resulting;
+        return scrabblePlankje;
     }
    
     /// <summary>

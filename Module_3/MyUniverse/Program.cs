@@ -1,4 +1,4 @@
-﻿#define VIRTUALx
+﻿#define ABSTRACT
 
 namespace MyUniverse;
 
@@ -15,7 +15,7 @@ internal class Program
         p10.Schrijf("Gary");
 
 
-#if VIRTUAL
+#if !ABSTRACT
         Pen p1 = new Pen();
         //Pen p1 = new Pen(20, ConsoleColor.DarkGreen);
         //p1.lijndikte = 5;
