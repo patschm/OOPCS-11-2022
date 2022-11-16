@@ -2,9 +2,12 @@
 
 namespace Siemens;
 
+public delegate void Detectable();
+
 public class Detectielus
 {
     private List<IDetectable> devices = new List<IDetectable>();
+    public event Detectable Detecting;
 
     public void Connect(IDetectable device)
     {
@@ -18,5 +21,6 @@ public class Detectielus
         {
             device.Activate();
         }
+        Detecting?.Invoke();
     }
 }

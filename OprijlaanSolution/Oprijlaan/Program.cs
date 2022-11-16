@@ -16,6 +16,12 @@ internal class Program
         var gate = new Hek();
         var valkuil= new Valkuil();
 
+        lus.Detecting += tl.Aan;
+        lus.Detecting += cam.Draait;
+        lus.Detecting += gate.Open;
+        lus.Detecting += valkuil.Open;
+         
+
         lus.Connect(gate);
         lus.Connect(cam); 
         lus.Connect(valkuil);
